@@ -4,3 +4,4 @@ google-cloud-storage
 pandas
 scikit-learn
 joblib
+db-dtypes
