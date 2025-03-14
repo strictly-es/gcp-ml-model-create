@@ -1,0 +1,6 @@
+flask
+google-cloud-bigquery
+google-cloud-storage
+pandas
+scikit-learn
+joblib
