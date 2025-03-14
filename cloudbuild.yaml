@@ -1,0 +1,22 @@
+steps:
+  # 1. Docker イメージをビルド
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'us-central1-docker.pkg.dev/test-shun-347007/cloud-run-source-deploy/gcp-ml-model-create', '.']
+
+  # 2. Docker イメージを Artifact Registry に push
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'us-central1-docker.pkg.dev/test-shun-347007/cloud-run-source-deploy/gcp-ml-model-create']
+
+  # 3. Cloud Run にデプロイ
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args: [
+      'run', 'deploy', 'gcp-test',
+      '--image', 'us-central1-docker.pkg.dev/test-shun-347007/cloud-run-source-deploy/gcp-ml-model-create',
+      '--region', 'us-central1',
+      '--platform', 'managed',
+      '--allow-unauthenticated'
+    ]
+
+images:
+  - 'us-central1-docker.pkg.dev/test-shun-347007/cloud-run-source-deploy/gcp-ml-model-create'
