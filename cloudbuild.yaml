@@ -11,7 +11,7 @@ steps:
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args: [
-      'run', 'deploy', 'gcp-test',
+      'run', 'deploy', 'gcp-ml-model-create',
       '--image', 'us-central1-docker.pkg.dev/test-shun-347007/cloud-run-source-deploy/gcp-ml-model-create',
       '--region', 'us-central1',
       '--platform', 'managed',
