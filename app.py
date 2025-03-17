@@ -39,7 +39,7 @@ def train_and_upload_model():
     print(f"AUC-ROC Score: {auc:.3f}")
 
     # **③ Cloud Storage にアップロード**
-    model_filename = "credit_risk_model2.pkl"
+    model_filename = "credit_risk_model.pkl"
     joblib.dump(model, model_filename)
 
     bucket_name = "credit-risk-bucket-test"
